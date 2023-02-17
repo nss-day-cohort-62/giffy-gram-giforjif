@@ -1,3 +1,29 @@
 {
-  "users": []
+  "users": [
+    {"id": 1, "name": "Jessalynn Whyte", "email": "jess@jessalynn.com", "password": "1234"},
+    {"id": 2, "name": "Ernie Fabian", "email": "ern@ernie.com", "password": "4567"},
+    {"id": 3, "name": "Dylan Kline", "email": "dylan@dylan.com", "password": "7890"},
+    {"id": 4, "name": "Emeka Akoma", "email": "emeka@emeka.com", "password": "2345"}
+  ],
+  "posts": [
+    {
+      "id": 1, 
+      "userId": 4, 
+      "title": "this is it", 
+      "link": "link here", 
+      "story": "this is the story", 
+      "date": 54632
+    },
+  ],
+  "messages": [
+    {
+      "id": 1, 
+      "senderUserId": 4, 
+      "receiverUserId": 2, 
+      "content": "hello, how are you doing?"
+    }
+  ],
+  "favorites": [
+    {"id": 1, "postId": 3, "userId": 4}
+    ]
 }
