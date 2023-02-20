@@ -36,6 +36,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    list-style: none;
 }
 
 .message {
@@ -45,9 +46,23 @@
     box-shadow: 0.25rem 0.25rem 0.5rem rgb(143, 143, 143);
     margin: 0 25%;
     flex-basis: 50%;
+    cursor: pointer;
+}
+
+.message:hover {
+    font-size: 17px;
 }
 
 .message__author {
     font-weight: bold;
     margin-bottom: 1rem;
+}
+
+.deleteMessage {
+    width: 3%;
+    height: auto;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    cursor: pointer;
 }

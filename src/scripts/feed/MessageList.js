@@ -18,10 +18,11 @@ const convertMessageToListElement = (message) => {
 doesn't update the code below when changes are made
 */
     return `
-    <li class="" name="message" value="${message.id}"/>
-    <div class="messageSender">Sender: ${author.name}</div>
+    <li class="message" name="message" value="${message.id}"/>
+    <div class="message__author">${author.name}</div>
     <div class="messageContent">${message.content}</div>
-    <div class="messageDate">${message.dateCreated}</div>
+    <div class="messageDate">Received: ${message.dateCreated}</div>
+    <img class="deleteMessage" src="images/block.svg">
     </li>
     `
 }
@@ -30,7 +31,7 @@ export const MessageList = () => {
     const messages = getMessages()
 
     let html = `
-        <ul>
+        <ul class="messages">
             ${messages.map(convertMessageToListElement).join("")
         }
         </ul>`
