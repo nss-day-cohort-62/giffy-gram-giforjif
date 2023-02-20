@@ -12,14 +12,14 @@
       "title": "this is it", 
       "link": "link here", 
       "story": "this is the story", 
-      "date": 54632
-    },
+      "dateCreated": 54632
+    }
   ],
   "messages": [
     {
       "id": 1, 
       "senderUserId": 4, 
-      "receiverUserId": 2, 
+      "recepientId": 2, 
       "content": "hello, how are you doing?"
     }
   ],

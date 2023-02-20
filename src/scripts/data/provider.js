@@ -1,6 +1,6 @@
 //Refer back to data access
 
-const apiURL = "http://localhost:8088"
+const apiURL = "http://localhost:3000"
 const applicationElement = document.querySelector(".giffygram")
 
 
@@ -102,4 +102,15 @@ export const sendPosts = (userPostSent) => {
     .then(() => {
         applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
     })
+}
+
+
+
+export const deleteMessages = (id) => {
+    return fetch(`${apiURL}/messages/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
 }
