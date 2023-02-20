@@ -27,6 +27,9 @@
     height: 2rem;
 }
 
+.navigation__icon {
+    height: 2rem;
+}
 
 .navigation__message {
     margin-left: auto;

@@ -120,3 +120,14 @@ export const sendUser = (userLogin) => {
         applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
     })
 }
+
+
+
+export const deleteMessages = (id) => {
+    return fetch(`${apiURL}/messages/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
