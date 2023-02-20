@@ -97,7 +97,24 @@ export const sendPosts = (userPostSent) => {
     }
 
 
-    return fetch(`${API}/posts`, fetchOptions)
+    return fetch(`${apiURL}/posts`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+    })
+}
+
+export const sendUser = (userLogin) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userLogin)
+    }
+
+
+    return fetch(`${apiURL}/users`, fetchOptions)
     .then(response => response.json())
     .then(() => {
         applicationElement.dispatchEvent(new CustomEvent("stateChanged"))

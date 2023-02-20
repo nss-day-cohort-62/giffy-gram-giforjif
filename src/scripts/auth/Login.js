@@ -1,4 +1,4 @@
-import { getUsers } from "../data/provider.js"
+import { getUsers, sendUser } from "../data/provider.js"
 
 
 document.addEventListener("click", clickEvent => {
@@ -22,6 +22,21 @@ document.addEventListener("click", clickEvent => {
     }
 })
 
+document.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "registerButton") {
+        let newUserEmail = document.querySelector("input[name='email']").value
+        let newUserPassword = document.querySelector("input[name='password']").value
+
+      const sendUserToAPI = {
+        email: newUserEmail,
+        password: newUserPassword
+      }
+    sendUser(sendUserToAPI)
+    window.alert(`${newUserEmail} is now registered.`)
+    }
+    
+})
+
 export const LoginForm = () => {
     return `
         <div class="loginForm">
@@ -36,6 +51,7 @@ export const LoginForm = () => {
                 </fieldset>
             </form>
             <button id="loginButton">Login</button>
+            <button id="registerButton">Register</button>
         </div>
     `
 }
