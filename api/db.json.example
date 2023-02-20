@@ -20,7 +20,8 @@
       "id": 1, 
       "senderUserId": 4, 
       "receiverUserId": 2, 
-      "content": "hello, how are you doing?"
+      "content": "hello, how are you doing?",
+      "dateCreated": "02/17/2022"
     }
   ],
   "favorites": [
