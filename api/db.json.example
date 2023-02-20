@@ -12,15 +12,16 @@
       "title": "this is it", 
       "link": "link here", 
       "story": "this is the story", 
-      "dateCreated": 54632
+      "date": 54632
     }
   ],
   "messages": [
     {
       "id": 1, 
       "senderUserId": 4, 
-      "recepientId": 2, 
-      "content": "hello, how are you doing?"
+      "receiverUserId": 2, 
+      "content": "hello, how are you doing?",
+      "dateCreated": "02/17/2022"
     }
   ],
   "favorites": [
