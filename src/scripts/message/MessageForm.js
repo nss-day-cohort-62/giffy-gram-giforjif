@@ -28,6 +28,7 @@ export const messageForm = () => {
         </div>
         <button class="button" id="saveMessage">Save</button>
         <button class="button" id="cancelMessage">Cancel</button>
+        </section>
     `
 
     return html
@@ -39,10 +40,11 @@ applicationElement.addEventListener("click", clickEvent => {
         // Get what the user typed into the form fields
         const userName = document.querySelector("select[name='recipient']").value
         const message = document.querySelector("textarea[name='message']").value
-
+        const userSender = localStorage.getItem("gg_user")
         // Make an object out of the user input
         const dataToSendToAPI = {
-            recepientId: parseInt(userName),
+            senderUserId: parseInt(userSender),
+            receiverUserId: parseInt(userName),
             content: message,
             dateCreated: Date.now()
         }

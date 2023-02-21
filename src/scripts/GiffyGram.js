@@ -1,24 +1,29 @@
 import { MessageList } from "./feed/MessageList.js"
+import { PostList } from "./feed/PostList.js"
+import { PostForm } from "./feed/PostEntry.js"
+import { messageForm } from "./message/MessageForm.js"
+import { NavBar} from "./nav/NavBar.js"
+import { Footer } from "./nav/Footer.js"
 
 export const GiffyGram = () => {
 
     // Show main main UI
     return `
-    <section class="navigation navigation__item">
-        <div>
-            <img class="navigation__icon" src="images/pb.png">
-        </div>
-        <div>
-            <div class="navigation__name" href="#home">Giffygram</div>
-        </div>
-        <div class="navigation__message">
-            <img class="navigation__icon" id="directMessageIcon" src="images/fountain-pen.svg">
-            <div class="notification__count">0</div>
-        </div>
-        <a class="navigation__logout" href="#logout">Logout</a>
+    <section>
+    ${NavBar()}
     </section>
     <section class="messages_listed">
         <h2>Message List</h2>
+        ${messageForm()}
         ${MessageList()}
+    </section>
+    <section>
+        <h2>Feed</h2>
+        ${PostForm()}
+        ${PostList()}
+    </section>
+    <section>
+    ${Footer()}
+    </section>
 `
 }

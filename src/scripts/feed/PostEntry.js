@@ -41,9 +41,10 @@ applicationElement.addEventListener("click", clickEvent => {
         gifUrl: gifUrl,
         description: description
     }
-}
+
 
     sendPosts(userPostSent)
+}
 })
 
 applicationElement.addEventListener("click", clickEvent => {

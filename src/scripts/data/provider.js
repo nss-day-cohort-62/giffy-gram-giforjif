@@ -54,6 +54,15 @@ export const fetchFavorites = () => {
         )
 }
 
+export const deleteMessage = (id) => {
+    return fetch(`${apiURL}/messages/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
+
 
 
 export const getMessages = () => {
