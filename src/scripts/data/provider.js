@@ -54,6 +54,15 @@ export const fetchFavorites = () => {
         )
 }
 
+export const deleteMessage = (id) => {
+    return fetch(`${apiURL}/messages/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
+
 
 
 export const getMessages = () => {
@@ -158,3 +167,12 @@ export const setChosenUser = (userId) => {
 // export const getShowFavorites = ()=>{
 //     const _0x4945df = a4_0x1b8202;
 //     return applicationState[_0x4945df(0x1e0)]['displayFavorites'];
+
+export const deletePost = (id) => {
+    return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}

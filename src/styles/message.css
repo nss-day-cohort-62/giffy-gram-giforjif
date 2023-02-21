@@ -58,7 +58,7 @@
     margin-bottom: 1rem;
 }
 
-.deleteMessage {
+.message__delete {
     width: 3%;
     height: auto;
     text-align: center;
