@@ -14,6 +14,7 @@ export const messageForm = () => {
         
         <section id="field">
         <h2>Direct Message</h2>
+
             <button class="button" id="exitScreen">x</button>
             <div class="field">
                 <label class="label" for="recipient">Recipient</label>

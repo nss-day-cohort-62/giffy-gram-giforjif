@@ -37,6 +37,7 @@ export const PostForm = () => {
 //     const gifUrl = document.querySelector("textarea[name='gifUrl']").value
 //     const description = document.querySelector("textarea[name='description']").value
 
+
 //     const userPostSent = {
 //         title: title,
 //         gifUrl: gifUrl,
