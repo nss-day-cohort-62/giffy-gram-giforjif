@@ -1,4 +1,5 @@
 import { MessageList } from "./feed/MessageList.js"
+import { Footer } from "./nav/Footer.js"
 
 export const GiffyGram = () => {
 
@@ -20,5 +21,6 @@ export const GiffyGram = () => {
     <section class="messages_listed">
         <h2>Message List</h2>
         ${MessageList()}
+        ${Footer()}
 `
 }
