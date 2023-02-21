@@ -29,6 +29,25 @@
     text-align: center;
 }
 
+#savePost {
+    color: #404040;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    margin-right: 5px;
+}
+
+#cancelPost {
+    color: #404040;
+    font-family: "Comfortaa", Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+
 .newPost__upload {
     display: flex;
     flex-direction: row;

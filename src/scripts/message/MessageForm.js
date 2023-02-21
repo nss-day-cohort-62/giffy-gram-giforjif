@@ -12,13 +12,13 @@ export const messageForm = () => {
 
     let html = `
         
-        <section id="field">
+        <section id="field" class="directMessage">
         <h2>Direct Message</h2>
 
-            <button class="button" id="exitScreen">x</button>
+            <button class="button" id="directMessage__close">x</button>
             <div class="field">
-                <label class="label" for="recipient">Recipient</label>
-                    <select class="label" name="recipient" id="recipient">
+                <label class="label" for="recipient">Recipient:</label>
+                    <select class="message__input" name="recipient" id="recipient">
                         <option value="">Choose a recipient</option>
                         ${users.map(user => {
                             return `<option name="recipient" value="${user.id}">${user.name}</option>`
@@ -27,7 +27,7 @@ export const messageForm = () => {
             </div>
             <div class="field">
                 <label class="label" for="letter">Message:</label>
-                <textarea id="story" name="message" rows="2" cols="25" placeholder="Message to user"></textarea>
+                <textarea class="message__input" id="story" name="message" rows="2" cols="25" placeholder="Message to user"></textarea>
             </div>
             <button class="button" id="saveMessage">Save</button>
             <button class="button" id="cancelMessage">Cancel</button>
@@ -59,7 +59,7 @@ applicationElement.addEventListener("click", clickEvent => {
         document.querySelector("select[name='recipient']").value = ""
         document.querySelector("textarea[name='message']").value = ""
     }
-    else if (clickEvent.target.id === "exitScreen") {
+    else if (clickEvent.target.id === "directMessage__close") {
         let form = document.getElementById("field")
         form.style.display = "none"
         // window.close() //Error message on console: 'Scripts may close only the windows that were opened by them.' So I am assuming that i would need the other modules to work before this function can.

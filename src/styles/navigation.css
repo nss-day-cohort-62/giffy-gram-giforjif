@@ -21,6 +21,7 @@
     font-size: 1.5rem;
     padding-left: 0.5rem;
     padding-top: 0.1rem;
+    cursor: pointer
 }
 
 .navigation__icon > img {
@@ -29,6 +30,7 @@
 
 .navigation__icon {
     height: 2rem;
+    cursor: pointer;
 }
 
 .navigation__message {

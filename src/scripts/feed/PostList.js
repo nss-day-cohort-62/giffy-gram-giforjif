@@ -24,9 +24,9 @@ export const PostList = () => {
     html += `
       <div class="post">
         <h2 class="post__remark">${post.title}</h2>
-        <img src="${post.gifUrl}" alt="Post Gif" class="post__image">
+        <img src="${post.link}" alt="Post Gif" class="post__image">
         <p class="post__tagline">${post.story}</p>
-        <p class="post__info">Posted by ${user.name} on ${post.date}</p>
+        <p class="post__info">Posted by <a href="#test">${user.name}</a> on ${post.date}</p>
         <button class="post__favorite" id="favorite--${post.id}">Favorite</button>
         ${
             //The following code should be able to determin the active userId and 

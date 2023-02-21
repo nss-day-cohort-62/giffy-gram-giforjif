@@ -1,5 +1,5 @@
 //getFavorites, getPosts needs to be imported
-import { getUsers, getPosts, setChosenUser, getChosenUser, toggleFavorites } from "../data/provider.js"
+import { getUsers, setChosenUser } from "../data/provider.js"
 
 // Need a function to count unique dates by year and number of posts since year
 //  const postDate = () => {

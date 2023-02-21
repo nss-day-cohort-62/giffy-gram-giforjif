@@ -12,18 +12,18 @@ export const PostForm = () => {
     let html = ""
     html += `
         <div class="newPost">
-        <div class="newPost__input">
-            <textarea type="text" name="title" class="input" placeholder="Title" rows="1" cols="30"></textarea>
+        <div>
+            <input type="text" name="title" class="newPost__input" placeholder="Title"></input>
         </div>
-        <div class="newPost__input">
-            <textarea type="text" name="gifUrl" class="input" placeholder="Gif URL" rows="1" cols="30"></textarea>
+        <div>
+            <input type="text" name="gifUrl" class="newPost__input" placeholder="Gif URL"></input>
         </div>
-        <div class="newPost__description">
-            <textarea type="text" name="description" class="input" placeholder="Description" rows="3" cols="25"></textarea>
+        <div>
+            <textarea type="text" name="description" class="newPost__description" placeholder="Description" rows="3" cols="25"></textarea>
         </div>
         <div class="newPost__upload">
-        <button class="newPost__drop" id="savePost">Save</button>
-        <button class="newPost__drop" id="cancelPost">Cancel</button>
+        <button id="savePost">Save</button>
+        <button id="cancelPost">Cancel</button>
         </div>
         </div>
     `;

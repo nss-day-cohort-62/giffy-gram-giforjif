@@ -6,21 +6,21 @@ export const NavBar = () => {
     return `
     <section class="navigation navigation__item">
     <div>
-        <img class="navigation__icon" src="images/pb.png">
+        <img class="navigation__icon" id="navigation__logo" src="images/pb.png">
     </div>
     <div>
-        <div class="navigation__name" href="#home">Giffygram</div>
+        <div class="navigation__name" id="navigation__home" href="#home">Giffygram</div>
     </div>
     <div class="navigation__message">
         <img class="navigation__icon" id="directMessageIcon" src="images/fountain-pen.svg">
-        <div class="notification__count">0</div>
+        <div class="notification__count" id="notification">0</div>
     </div>
     <a class="navigation__logout" href="#logout">Logout</a>
 </section>`
 }
 
-document.addEventListener('click', (click) => {
-    if (click.target.id.startsWith("notification--")) {
-        
+applicationElement.addEventListener('click', (click) => {
+    if (click.target.id === "navigation__logo" || "navigation__home") {
+        location.reload()
     }
 })
