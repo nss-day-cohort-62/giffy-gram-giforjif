@@ -7,7 +7,7 @@ It should display the posts in reverse chronological order starting with most re
 */
 // need to write and import deletePost in/from provider.js or 
 // add deletePost function in this module
-import { getPosts, getUsers } from "../data/provider.js";
+import { getPosts, getUsers, deletePost } from "../data/provider.js";
 
 const applicationElement = document.querySelector(".giffygram");
 
@@ -23,10 +23,10 @@ export const PostList = () => {
 
     html += `
       <div class="post">
-        <h2 class="post__title">${post.title}</h2>
-        <img src="${post.gifUrl}" alt="Post Gif" class="post__gif">
-        <p class="post__description">${post.description}</p>
-        <p class="post__info">Posted by ${user.name} on ${post.date_created}</p>
+        <h2 class="post__remark">${post.title}</h2>
+        <img src="${post.gifUrl}" alt="Post Gif" class="post__image">
+        <p class="post__tagline">${post.story}</p>
+        <p class="post__info">Posted by ${user.name} on ${post.date}</p>
         <button class="post__favorite" id="favorite--${post.id}">Favorite</button>
         ${
             //The following code should be able to determin the active userId and 
