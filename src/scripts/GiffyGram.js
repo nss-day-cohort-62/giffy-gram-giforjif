@@ -1,4 +1,6 @@
 import { MessageList } from "./feed/MessageList.js"
+import { Post } from "./feed/Post.js"
+import { PostList } from "./feed/PostList.js"
 
 export const GiffyGram = () => {
 
@@ -20,5 +22,8 @@ export const GiffyGram = () => {
     <section class="messages_listed">
         <h2>Message List</h2>
         ${MessageList()}
+        <h2>Button</h2>
+        ${Post()}
+        ${PostList()}
 `
 }

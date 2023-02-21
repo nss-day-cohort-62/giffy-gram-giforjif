@@ -1,4 +1,4 @@
-.miniMode {
+#miniMode {
     padding: 1rem;
     margin: 0 25%;
     border: 1px dashed slategrey;
@@ -25,14 +25,14 @@
     padding: 1rem;
     color: gray;
     font-size: 1rem;
-    border: 1px dotted lightgrey;
+    border: 2px solid lightgrey;
     text-align: center;
 }
 
 .newPost__upload {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 0.75rem 0 0 0;
 }
 
