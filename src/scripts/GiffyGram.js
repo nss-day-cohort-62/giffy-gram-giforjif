@@ -5,6 +5,7 @@ import { messageForm } from "./message/MessageForm.js"
 import { NavBar} from "./nav/NavBar.js"
 import { Footer } from "./nav/Footer.js"
 
+
 export const GiffyGram = () => {
 
     // Show main main UI
@@ -16,6 +17,7 @@ export const GiffyGram = () => {
         <h2>Message List</h2>
         ${messageForm()}
         ${MessageList()}
+
     </section>
     <section>
         <h2>Feed</h2>
