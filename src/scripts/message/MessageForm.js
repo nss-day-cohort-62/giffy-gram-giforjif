@@ -11,23 +11,26 @@ export const messageForm = () => {
     const users = getUsers()
 
     let html = `
+        
+        <section id="field">
         <h2>Direct Message</h2>
-        <button class="button" id="exitScreen">x</button>
-        <div class="field">
-            <label class="label" for="recipient">Recipient</label>
-                <select class="label" name="recipient" id="recipient">
-                    <option value="">Choose a recipient</option>
-                    ${users.map(user => {
-                        return `<option name="recipient" value="${user.id}">${user.name}</option>`
-                    }).join("")}
-                </select>
-        </div>
-        <div class="field">
-            <label class="label" for="letter">Message:</label>
-            <textarea id="story" name="message" rows="2" cols="25" placeholder="Message to user"></textarea>
-        </div>
-        <button class="button" id="saveMessage">Save</button>
-        <button class="button" id="cancelMessage">Cancel</button>
+            <button class="button" id="exitScreen">x</button>
+            <div class="field">
+                <label class="label" for="recipient">Recipient</label>
+                    <select class="label" name="recipient" id="recipient">
+                        <option value="">Choose a recipient</option>
+                        ${users.map(user => {
+                            return `<option name="recipient" value="${user.id}">${user.name}</option>`
+                        }).join("")}
+                    </select>
+            </div>
+            <div class="field">
+                <label class="label" for="letter">Message:</label>
+                <textarea id="story" name="message" rows="2" cols="25" placeholder="Message to user"></textarea>
+            </div>
+            <button class="button" id="saveMessage">Save</button>
+            <button class="button" id="cancelMessage">Cancel</button>
+        </section>
     `
 
     return html
@@ -39,10 +42,11 @@ applicationElement.addEventListener("click", clickEvent => {
         // Get what the user typed into the form fields
         const userName = document.querySelector("select[name='recipient']").value
         const message = document.querySelector("textarea[name='message']").value
-
+        const userSender = localStorage.getItem("gg_user")
         // Make an object out of the user input
         const dataToSendToAPI = {
-            recepientId: parseInt(userName),
+            senderUserId: parseInt(userSender),
+            receiverUserId: parseInt(userName),
             content: message,
             dateCreated: Date.now()
         }
@@ -55,7 +59,9 @@ applicationElement.addEventListener("click", clickEvent => {
         document.querySelector("textarea[name='message']").value = ""
     }
     else if (clickEvent.target.id === "exitScreen") {
-        window.close() //Error message on console: 'Scripts may close only the windows that were opened by them.' So I am assuming that i would need the other modules to work before this function can.
+        let form = document.getElementById("field")
+        form.style.display = "none"
+        // window.close() //Error message on console: 'Scripts may close only the windows that were opened by them.' So I am assuming that i would need the other modules to work before this function can.
         // location.reload()
     }
 })
