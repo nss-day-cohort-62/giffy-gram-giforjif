@@ -141,6 +141,33 @@ export const deleteMessages = (id) => {
         )
 }
 
+export const getChosenUser = () => {
+    return applicationState.chosenUser.map(user => ({...user}))
+}
+
+export const setChosenUser = (userId) => {
+    applicationState.selectedUser = userId
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}
+
+
+// //function to toggle favorites button in footer and change displayFavorites in applicationState
+// export const toggleFavorites = (chosenUser) => {
+//  user.id && (applicationState.feed.displayFavorites = null),
+
+// }
+
+// //
+// export const toggleFavoritesOnly = _0x5d49fa=>{
+//     const _0x2fc536 = a4_0x1b8202;
+//     _0x5d49fa && (applicationState[_0x2fc536(0x1e0)][_0x2fc536(0x1c6)] = null),
+//     applicationState[_0x2fc536(0x1e0)]['displayFavorites'] = _0x5d49fa;
+// }
+
+// export const getShowFavorites = ()=>{
+//     const _0x4945df = a4_0x1b8202;
+//     return applicationState[_0x4945df(0x1e0)]['displayFavorites'];
+
 export const deletePost = (id) => {
     return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
         .then(
