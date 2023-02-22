@@ -6,8 +6,10 @@ Create/export function that copies
 
 import { getMessages, getUsers, deleteMessage } from "../data/provider.js"
 const applicationElement = document.querySelector(".giffygram")
+const currentUser = localStorage.getItem("gg_user")
 
 const convertMessageToListElement = (message) => {
+    let html = ""
     const users = getUsers()
     let author = null
     for (const user of users) {
@@ -15,17 +17,20 @@ const convertMessageToListElement = (message) => {
             author = user
         }
     }
+    if (message.receiverUserId === parseInt(currentUser)){
+        html = `
+        <li class="message" name="message" value="${message.id}"/>
+        <div class="message__author">${author.name}</div>
+        <div class="messageContent">${message.content}</div>
+        <div class="messageDate">Received: ${message.dateCreated}</div>
+        <img src="images/block.svg" class="message__delete"id="message--${message.id}">
+        </li>
+        `
+    }
 /* dateCreated returns undefined. For some reason the giffygram.json database 
 doesn't update the code below when changes are made
 */
-    return `
-    <li class="message" name="message" value="${message.id}"/>
-    <div class="message__author">${author.name}</div>
-    <div class="messageContent">${message.content}</div>
-    <div class="messageDate">Received: ${message.dateCreated}</div>
-    <img src="images/block.svg" class="message__delete"id="message--${message.id}">
-    </li>
-    `
+   return html
 }
 
 export const MessageList = () => {
@@ -46,3 +51,4 @@ applicationElement.addEventListener("click", click => {
         deleteMessage(parseInt(messageId))
     }
 })
+

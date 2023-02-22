@@ -31,6 +31,39 @@ export const PostForm = () => {
     return html;
 }
 
+
+
+applicationElement.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "savePost") {
+        const postTitle = document.querySelector("input[name='title']").value
+        const gifUrl = document.querySelector("input[name='gifUrl']").value
+        const postDescription = document.querySelector("textarea[name='description']").value
+        const userId = localStorage.getItem("gg_user")
+
+        const dataToSendToAPI = {
+            userId: parseInt(userId),
+            title: postTitle,
+            link: gifUrl,
+            story: postDescription,
+            date: new Date().toLocaleString()
+        }
+
+        sendPosts(dataToSendToAPI)
+            .then(() => {
+            document.querySelector("input[name='title']").value = ""
+            document.querySelector("input[name='gifUrl']").value = ""
+            document.querySelector("textarea[name='description']").value = ""
+        })
+    } else if (clickEvent.target.id === "cancelPost") {
+        location.reload()
+        // document.querySelector("textarea[name='postTitle']").value = ""
+        // document.querySelector("textarea[name='gifUrl']").value = ""
+        // document.querySelector("textarea[name='postDescription']").value = ""
+    }
+})
+
+
+
 // applicationElement.addEventListener("click", clickEvent => {
 //     if (clickEvent.target.id === "savePost") {
 //     const title = document.querySelector("textarea[name='title']").value
@@ -55,32 +88,3 @@ export const PostForm = () => {
 //     document.querySelector("textarea[name='description']").value = ""
 //     }
 // })
-
-applicationElement.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "savePost") {
-        const postTitle = document.querySelector("textarea[name='title']").value
-        const gifUrl = document.querySelector("textarea[name='gifUrl']").value
-        const postDescription = document.querySelector("textarea[name='description']").value
-        const userId = localStorage.getItem("gg_user")
-
-        const dataToSendToAPI = {
-            userId: parseInt(userId),
-            title: postTitle,
-            link: gifUrl,
-            story: postDescription,
-            date: new Date().toLocaleString()
-        }
-
-        sendPosts(dataToSendToAPI)
-            .then(() => {
-            document.querySelector("textarea[name='title']").value = ""
-            document.querySelector("textarea[name='gifUrl']").value = ""
-            document.querySelector("textarea[name='description']").value = ""
-        })
-    } else if (clickEvent.target.id === "cancelPost") {
-        location.reload()
-        // document.querySelector("textarea[name='postTitle']").value = ""
-        // document.querySelector("textarea[name='gifUrl']").value = ""
-        // document.querySelector("textarea[name='postDescription']").value = ""
-    }
-})

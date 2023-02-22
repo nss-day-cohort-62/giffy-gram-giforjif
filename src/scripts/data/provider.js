@@ -17,6 +17,9 @@ const applicationState = {
     favorites: []
 }
 
+
+
+
 export const fetchUsers = () => {
     return fetch(`${apiURL}/users`)
         .then(response => response.json())
@@ -65,6 +68,7 @@ export const deleteMessage = (id) => {
 
 
 
+
 export const getMessages = () => {
     return applicationState.messages.map(message => ({...message}))
 }
@@ -77,6 +81,8 @@ export const getPosts = () => {
 export const getFavorites = () => {
     return applicationState.favorites.map(favorite => ({...favorite}))
 }
+
+
 
 
 
@@ -129,9 +135,35 @@ export const sendUser = (userLogin) => {
         applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
     })
 }
+export const sendFavorites = (userFavorites) => {
+    const fetchOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userFavorites)
+    }
+
+
+    return fetch(`${apiURL}/favorites`, fetchOptions)
+    .then(response => response.json())
+    .then(() => {
+        applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+    })
+}
 
 
 
+
+
+export const deleteFavorites = (id) => {
+    return fetch(`${apiURL}/favorites/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
 export const deleteMessages = (id) => {
     return fetch(`${apiURL}/messages/${id}`, { method: "DELETE" })
         .then(
@@ -140,6 +172,19 @@ export const deleteMessages = (id) => {
             }
         )
 }
+export const deletePost = (id) => {
+    return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
+        .then(
+            () => {
+                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
+            }
+        )
+}
+
+
+
+
+
 
 export const getChosenUser = () => {
     return applicationState.chosenUser.map(user => ({...user}))
@@ -168,11 +213,3 @@ export const setChosenUser = (userId) => {
 //     const _0x4945df = a4_0x1b8202;
 //     return applicationState[_0x4945df(0x1e0)]['displayFavorites'];
 
-export const deletePost = (id) => {
-    return fetch(`${apiURL}/posts/${id}`, { method: "DELETE" })
-        .then(
-            () => {
-                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-            }
-        )
-}

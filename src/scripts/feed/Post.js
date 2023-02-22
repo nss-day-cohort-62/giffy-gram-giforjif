@@ -23,8 +23,6 @@ applicationElement.addEventListener("click", (clickEvent) => {
 
         if (postFormContainer.innerHTML === "") {
             postFormContainer.innerHTML = PostForm();
-        } else {
-            postFormContainer.innerHTML = "";
         }
     }
 });

@@ -15,12 +15,19 @@ export const NavBar = () => {
         <img class="navigation__icon" id="directMessageIcon" src="images/fountain-pen.svg">
         <div class="notification__count" id="notification">0</div>
     </div>
-    <a class="navigation__logout" href="#logout">Logout</a>
+    <a id="logoutLink" class="navigation__logout" href="#logout">Logout</a>
 </section>`
 }
 
 applicationElement.addEventListener('click', (click) => {
-    if (click.target.id === "navigation__logo" || "navigation__home") {
+    if (click.target.id === "navigation__logo" || click.target.id === "navigation__home") {
         location.reload()
     }
+})
+
+applicationElement.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "logoutLink") {
+            localStorage.clear()
+            document.querySelector(".giffygram").dispatchEvent(new CustomEvent("stateChanged"))
+        }
 })
