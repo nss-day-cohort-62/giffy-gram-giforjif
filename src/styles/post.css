@@ -91,3 +91,13 @@
     font-size: 2em;
     margin: 1em 0 0.5em 0;
 }
+
+.post__delete,
+.post__favorite {
+    width: auto;
+    height: 1.2em;
+    text-align: center;
+    display: block;
+    margin: 0.5em 0.5em;
+    cursor: pointer;
+}

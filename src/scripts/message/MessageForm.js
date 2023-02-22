@@ -49,7 +49,7 @@ applicationElement.addEventListener("click", clickEvent => {
             senderUserId: parseInt(userSender),
             receiverUserId: parseInt(userName),
             content: message,
-            dateCreated: Date.now()
+            dateCreated: new Date().toLocaleString()
         }
 
         // Send the data to the API for permanent storage
@@ -66,3 +66,5 @@ applicationElement.addEventListener("click", clickEvent => {
         // location.reload()
     }
 })
+
+
