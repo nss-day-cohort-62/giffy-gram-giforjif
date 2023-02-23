@@ -69,7 +69,7 @@ applicationElement.addEventListener("click", (clickEvent) => {
   }
 })
 
-const favoritePost = (post) => {
+export const favoritePost = (post) => {
   let html = `<img src="images/favorite-star-blank.svg"
   class="post__favorite" id="favoriteBlank--${post.id}">`
   const favorites = getFavorites()
@@ -77,7 +77,7 @@ const favoritePost = (post) => {
   for (const favorite of favorites) {
     if (favorite.postId === post.id && favorite.userId === parseInt(user)) {
       html = `<img src="images/favorite-star-yellow.svg"
-        class="post__favorite" id="favoriteYellow--${post.id}">`
+        class="post__favorite favoriteYellow" id="favoriteYellow--${favorite.id}">`
     }
   }
   return html
@@ -85,9 +85,9 @@ const favoritePost = (post) => {
 
 applicationElement.addEventListener("click", (clickEvent) => {
   if (clickEvent.target.id.startsWith("favoriteYellow--")) {
-    const [, postId] = clickEvent.target.id.split("--");
+    const [, favoriteId] = clickEvent.target.id.split("--");
 
-    deleteFavorites(postId).then(() => {
+    deleteFavorites(parseInt(favoriteId)).then(() => {
       applicationElement.dispatchEvent(new CustomEvent("stateChanged"));
     });
   }

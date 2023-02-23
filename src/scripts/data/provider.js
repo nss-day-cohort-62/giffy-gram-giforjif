@@ -1,11 +1,10 @@
-//Refer back to data access
-
 const apiURL = "http://localhost:3000"
 const applicationElement = document.querySelector(".giffygram")
 
 
 const applicationState = {
     currentUser: {},
+    selectUser: {},
     feed: {
         chosenUser: null,
         displayFavorites: false,
@@ -19,7 +18,7 @@ const applicationState = {
 
 
 
-
+//Fetch from API
 export const fetchUsers = () => {
     return fetch(`${apiURL}/users`)
         .then(response => response.json())
@@ -57,18 +56,9 @@ export const fetchFavorites = () => {
         )
 }
 
-export const deleteMessage = (id) => {
-    return fetch(`${apiURL}/messages/${id}`, { method: "DELETE" })
-        .then(
-            () => {
-                applicationElement.dispatchEvent(new CustomEvent("stateChanged"))
-            }
-        )
-}
 
 
-
-
+//Map of transient state
 export const getMessages = () => {
     return applicationState.messages.map(message => ({...message}))
 }
@@ -81,11 +71,13 @@ export const getPosts = () => {
 export const getFavorites = () => {
     return applicationState.favorites.map(favorite => ({...favorite}))
 }
+export const getSelectUsers = () => {
+    return applicationState.selectUser.map(user => ({...user}))
+}
 
 
 
-
-
+//Create new entries in API
 export const sendMessages = (userDirectMessage) => {
     const fetchOptions = {
         method: "POST",
@@ -155,7 +147,7 @@ export const sendFavorites = (userFavorites) => {
 
 
 
-
+//Delete entries from API
 export const deleteFavorites = (id) => {
     return fetch(`${apiURL}/favorites/${id}`, { method: "DELETE" })
         .then(
@@ -164,7 +156,7 @@ export const deleteFavorites = (id) => {
             }
         )
 }
-export const deleteMessages = (id) => {
+export const deleteMessage = (id) => {
     return fetch(`${apiURL}/messages/${id}`, { method: "DELETE" })
         .then(
             () => {
@@ -182,34 +174,10 @@ export const deletePost = (id) => {
 }
 
 
-
-
-
-
-export const getChosenUser = () => {
-    return applicationState.chosenUser.map(user => ({...user}))
-}
-
-export const setChosenUser = (userId) => {
-    applicationState.selectedUser = userId
+//Set transient state in applicationState
+export const setSelectUser = (userId) => {
+    applicationState.selectUser = userId
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-
-// //function to toggle favorites button in footer and change displayFavorites in applicationState
-// export const toggleFavorites = (chosenUser) => {
-//  user.id && (applicationState.feed.displayFavorites = null),
-
-// }
-
-// //
-// export const toggleFavoritesOnly = _0x5d49fa=>{
-//     const _0x2fc536 = a4_0x1b8202;
-//     _0x5d49fa && (applicationState[_0x2fc536(0x1e0)][_0x2fc536(0x1c6)] = null),
-//     applicationState[_0x2fc536(0x1e0)]['displayFavorites'] = _0x5d49fa;
-// }
-
-// export const getShowFavorites = ()=>{
-//     const _0x4945df = a4_0x1b8202;
-//     return applicationState[_0x4945df(0x1e0)]['displayFavorites'];
 
