@@ -1,9 +1,8 @@
 import { MessageList } from "./feed/MessageList.js"
-
 import { PostList } from "./feed/PostList.js"
 import { messageForm } from "./message/MessageForm.js"
-import { NavBar} from "./nav/NavBar.js"
-import { Footer } from "./nav/Footer.js"
+import { NavBar } from "./nav/NavBar.js"
+import { Footer, FavoritesList, AuthorPostList } from "./nav/Footer.js"
 import { Post } from "./feed/Post.js"
 
 export const GiffyGram = () => {
@@ -28,6 +27,7 @@ export const GiffyGram = () => {
 
 const applicationElement = document.querySelector(".giffygram");
 
+
 applicationElement.addEventListener('click', (click) => {
     if (click.target.id === "directMessageIcon") {
         const DMForm = document.querySelector("#messageForm");
@@ -43,9 +43,26 @@ applicationElement.addEventListener('click', (click) => {
     if (click.target.id === "notification") {
         const MessageFeed = document.querySelector("#feed");
         // if (MessageFeed.innerHTML === "") {
-            MessageFeed.innerHTML = MessageList();
-    //     } else {
-    //         MessageFeed.innerHTML = "";
-    //     }
+        MessageFeed.innerHTML = MessageList();
+        //     } else {
+        //         MessageFeed.innerHTML = "";
+        //     }
     }
 })
+
+//checkbox event listener to filter by favorites
+applicationElement.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "yourFavorites") {
+        if (clickEvent.target.checked) {
+            const FavoriteFeed = document.querySelector("#feed");
+            FavoriteFeed.innerHTML = FavoritesList();
+        } 
+    }
+})
+
+applicationElement.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "select__user") {
+      const SelectedUser = document.querySelector("#feed")
+      SelectedUser.innerHTML = AuthorPostList();
+    }
+  })
