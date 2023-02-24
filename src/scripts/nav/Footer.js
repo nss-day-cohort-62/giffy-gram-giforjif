@@ -127,7 +127,7 @@ export const Footer = () => {
   let footerHTML = ``
   footerHTML += `<footer class="footer">
  <div class="footer__item">
- Posts since ${yearChoice()}
+ Posts in ${yearChoice()}
  <span id="yearCount" class="postCount"></span>
  </div>
  <div class="footer__item" id="userChoice">
@@ -170,15 +170,6 @@ export const AuthorPostList = () => {
     }
  return html
 }
-
-
-//Favorites Toggling:
-document.addEventListener("click", clickEvent => {
-  if (clickEvent.target.id === "yourFavorites") {
-    const CheckedBox = document.querySelector("#footerBox")
-    CheckedBox.innerHTML = `<input type="checkbox" class="showOnlyFavorites" id="yourFavorites" checked />Show Only Favorites</input>`
-  }
-})
 
 export const FavoritesList = () => {
   let html = ``

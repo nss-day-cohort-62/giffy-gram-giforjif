@@ -28,7 +28,6 @@ export const GiffyGram = () => {
 }
 
 const applicationElement = document.querySelector(".giffygram");
-const selectUser = getSelectUsers()
 
 
 applicationElement.addEventListener('click', (click) => {
@@ -52,9 +51,30 @@ applicationElement.addEventListener('click', (click) => {
 //checkbox event listener to filter by favorites
 applicationElement.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "yourFavorites") {
+        const CheckedBox = document.querySelector("#footerBox")
+        CheckedBox.innerHTML = `<input type="checkbox" class="showOnlyFavorites" id="yourFavoritesChecked" checked />Show Only Favorites</input>`
+      }
+    if (clickEvent.target.id === "yourFavorites") {
         if (clickEvent.target.checked) {
             const FavoriteFeed = document.querySelector("#feed");
-            FavoriteFeed.innerHTML = FavoritesList();
+            FavoriteFeed.innerHTML = 
+            `${Post()}
+            ${FavoritesList()}`
+        } 
+    }
+})
+
+applicationElement.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "yourFavoritesChecked") {
+        const CheckedBox = document.querySelector("#footerBox")
+        CheckedBox.innerHTML = `<input type="checkbox" class="showOnlyFavorites" id="yourFavorites" />Show Only Favorites</input>`
+      }
+    if (clickEvent.target.id === "yourFavoritesChecked") {
+        if (clickEvent.target.checked === false) {
+            const FavoriteFeed = document.querySelector("#feed");
+            FavoriteFeed.innerHTML =
+            `${Post()}
+            ${PostList()}`
         } 
     }
 })
