@@ -1,4 +1,5 @@
 import { MessageList } from "../feed/MessageList.js"
+import { MessageCount } from "../feed/MessageList.js"
 
 const applicationElement = document.querySelector(".giffygram")
 
@@ -13,7 +14,7 @@ export const NavBar = () => {
     </div>
     <div class="navigation__message">
         <img class="navigation__icon" id="directMessageIcon" src="images/fountain-pen.svg">
-        <div class="notification__count" id="notification">0</div>
+        <div class="notification__count" id="notification">${MessageCount()}</div>
     </div>
     <a id="logoutLink" class="navigation__logout" href="#logout">Logout</a>
 </section>`

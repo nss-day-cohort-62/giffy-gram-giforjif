@@ -66,3 +66,10 @@ document.addEventListener("change", changeEvent => {
       SelectedUser.innerHTML = AuthorPostList();
     }
   })
+
+  //Sandbox an event listener to add MessageRead property to messages to decriment the notification number in navbar
+// applicationElement.addEventListener('click', (click) => {
+//     if (click.target.id === "notification") {
+//         MessageRead();
+//     }
+// })
