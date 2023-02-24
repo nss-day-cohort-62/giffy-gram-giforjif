@@ -13,7 +13,8 @@ const applicationState = {
     messages: [],
     posts: [],
     users: [],
-    favorites: []
+    favorites: [],
+    selectYear: {}
 }
 
 
@@ -73,6 +74,9 @@ export const getFavorites = () => {
 }
 export const getSelectUsers = () => {
     return applicationState.selectUser
+}
+export const getSelectYear = () => {
+    return applicationState.selectYear
 }
 
 
@@ -180,4 +184,7 @@ export const setSelectUser = (userId) => {
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
-
+export const setSelectYear = (year) => {
+    applicationState.selectYear = year
+    document.dispatchEvent(new CustomEvent("stateChanged"))
+}

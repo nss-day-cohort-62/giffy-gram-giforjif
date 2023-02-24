@@ -2,9 +2,9 @@ import { MessageList } from "./feed/MessageList.js"
 import { PostList } from "./feed/PostList.js"
 import { messageForm } from "./message/MessageForm.js"
 import { NavBar } from "./nav/NavBar.js"
-import { Footer, FavoritesList, AuthorPostList } from "./nav/Footer.js"
+import { Footer, FavoritesList, AuthorPostList, yearPostList } from "./nav/Footer.js"
 import { Post } from "./feed/Post.js"
-import { getSelectUsers, getUsers, setSelectUser } from "./data/provider.js"
+import { getSelectUsers, getUsers, setSelectUser, setSelectYear } from "./data/provider.js"
 
 
 export const GiffyGram = () => {
@@ -67,6 +67,13 @@ document.addEventListener("change", changeEvent => {
     }
   })
 
+document.addEventListener("change", changeEvent => {
+    if (changeEvent.target.id === "select__year") {
+      setSelectYear(parseInt(changeEvent.target.value))
+      const SelectedYear = document.querySelector("#feed")
+      SelectedYear.innerHTML = yearPostList();
+    }
+  })
   //Sandbox an event listener to add MessageRead property to messages to decriment the notification number in navbar
 // applicationElement.addEventListener('click', (click) => {
 //     if (click.target.id === "notification") {
