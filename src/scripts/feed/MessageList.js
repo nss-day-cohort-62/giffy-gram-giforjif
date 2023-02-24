@@ -59,20 +59,8 @@ export const MessageCount = () => {
   
     for (const message of messages) {
       if (message.receiverUserId === parseInt(currentUser)) {
-          // if (message.messageRead === false)
         messageCount.push(message);
       }
   }
     return htmlCount = messageCount.length;
   };
-  
-  // Sandbox to filter messages by a "read" property to be added
-  // export const MessageRead = () => {
-  //     const messages = getMessages()
-  //     for (const message of messages) {
-  //         if (message.read === false) {
-  //         message.read = true
-  //         }
-  // }
-  // return messages
-  // }

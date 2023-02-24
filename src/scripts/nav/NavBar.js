@@ -10,13 +10,13 @@ export const NavBar = () => {
         <img class="navigation__icon" id="navigation__logo" src="images/pb.png">
     </div>
     <div>
-        <div class="navigation__name" id="navigation__home" href="#home">Giffygram</div>
+        <div class="navigation__name" id="navigation__home" href="">Giffygram</div>
     </div>
     <div class="navigation__message">
         <img class="navigation__icon" id="directMessageIcon" src="images/fountain-pen.svg">
         <div class="notification__count" id="notification">${MessageCount()}</div>
     </div>
-    <a id="logoutLink" class="navigation__logout" href="#logout">Logout</a>
+    <a id="logoutLink" class="navigation__logout" href="">Logout</a>
 </section>`
 }
 

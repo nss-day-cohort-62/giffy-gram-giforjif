@@ -26,7 +26,7 @@ export const PostList = () => {
         <h2 class="post__remark">${post.title}</h2>
         <img src="${post.link}" alt="Post Gif" class="post__image">
         <p class="post__tagline">${post.story}</p>
-        <p class="post__info">Posted by <a href="#test">${user.name}</a> on ${post.date}</p>
+        <p class="post__info">Posted by <a id="userName--${user.id}" href="">${user.name}</a> on ${post.date}</p>
         <div class="post__actions">
         ${favoritePost(post)}
       ${post.userId === parseInt(localStorage.getItem("gg_user"))

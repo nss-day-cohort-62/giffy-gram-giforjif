@@ -56,35 +56,5 @@ applicationElement.addEventListener("click", clickEvent => {
         })
     } else if (clickEvent.target.id === "cancelPost") {
         location.reload()
-        // document.querySelector("textarea[name='postTitle']").value = ""
-        // document.querySelector("textarea[name='gifUrl']").value = ""
-        // document.querySelector("textarea[name='postDescription']").value = ""
     }
 })
-
-
-
-// applicationElement.addEventListener("click", clickEvent => {
-//     if (clickEvent.target.id === "savePost") {
-//     const title = document.querySelector("textarea[name='title']").value
-//     const gifUrl = document.querySelector("textarea[name='gifUrl']").value
-//     const description = document.querySelector("textarea[name='description']").value
-
-
-//     const userPostSent = {
-//         title: title,
-//         gifUrl: gifUrl,
-//         description: description
-//     }
-// }
-
-//     sendPosts(userPostSent)
-// })
-
-// applicationElement.addEventListener("click", clickEvent => {
-//     if (clickEvent.target.id === "cancelPost") {
-//     document.querySelector("textarea[name='title']").value = ""
-//     document.querySelector("textarea[name='gifUrl']").value = ""
-//     document.querySelector("textarea[name='description']").value = ""
-//     }
-// })

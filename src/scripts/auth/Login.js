@@ -1,4 +1,4 @@
-import { getUsers, sendUser} from "../data/provider.js"
+import { getUsers, sendUser } from "../data/provider.js"
 
 
 document.addEventListener("click", clickEvent => {
@@ -24,22 +24,33 @@ document.addEventListener("click", clickEvent => {
 
 document.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "registerButton") {
+        const RegisterForm = document.querySelector("#loginForm")
+        RegisterForm.innerHTML = RegistrationForm()
+    }
+})
+
+
+
+document.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "submitButton") {
         let newUserEmail = document.querySelector("input[name='email']").value
         let newUserPassword = document.querySelector("input[name='password']").value
+        let newUserName = document.querySelector("input[name='name']").value
 
-      const sendUserToAPI = {
-        email: newUserEmail,
-        password: newUserPassword
-      }
-    sendUser(sendUserToAPI)
-    window.alert(`${newUserEmail} is now registered.`)
+        const sendUserToAPI = {
+            name: newUserName,
+            email: newUserEmail,
+            password: newUserPassword
+        }
+        sendUser(sendUserToAPI)
+        window.alert(`${newUserEmail} is now registered.`)
     }
-    
+
 })
 
 export const LoginForm = () => {
     return `
-        <div class="loginForm">
+        <div class="loginForm" id="loginForm">
             <form>
                 <fieldset>
                     <label for="email">Email:</label>
@@ -54,4 +65,24 @@ export const LoginForm = () => {
             <button id="registerButton">Register</button>
         </div>
     `
+}
+
+const RegistrationForm = () => {
+    return `<div class="loginForm">
+    <form>
+        <fieldset>
+            <label for="name">Name:</label>
+            <input type="text" name="name" autofocus placeholder="First and Last Name" />
+        </fieldset>
+        <fieldset>
+            <label for="email">Email:</label>
+            <input type="text" name="email" autofocus placeholder="Email address" />
+        </fieldset>
+        <fieldset>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Password" />
+        </fieldset>
+    </form>
+    <button id="submitButton">Submit</button>
+</div>`
 }
