@@ -72,7 +72,7 @@ export const getFavorites = () => {
     return applicationState.favorites.map(favorite => ({...favorite}))
 }
 export const getSelectUsers = () => {
-    return applicationState.selectUser.map(user => ({...user}))
+    return applicationState.selectUser
 }
 
 

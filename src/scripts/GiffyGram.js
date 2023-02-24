@@ -4,6 +4,8 @@ import { messageForm } from "./message/MessageForm.js"
 import { NavBar } from "./nav/NavBar.js"
 import { Footer, FavoritesList, AuthorPostList } from "./nav/Footer.js"
 import { Post } from "./feed/Post.js"
+import { getSelectUsers, getUsers, setSelectUser } from "./data/provider.js"
+
 
 export const GiffyGram = () => {
 
@@ -26,6 +28,7 @@ export const GiffyGram = () => {
 }
 
 const applicationElement = document.querySelector(".giffygram");
+const selectUser = getSelectUsers()
 
 
 applicationElement.addEventListener('click', (click) => {
@@ -42,11 +45,7 @@ applicationElement.addEventListener('click', (click) => {
 applicationElement.addEventListener('click', (click) => {
     if (click.target.id === "notification") {
         const MessageFeed = document.querySelector("#feed");
-        // if (MessageFeed.innerHTML === "") {
-        MessageFeed.innerHTML = MessageList();
-        //     } else {
-        //         MessageFeed.innerHTML = "";
-        //     }
+         MessageFeed.innerHTML = MessageList();
     }
 })
 
@@ -60,8 +59,9 @@ applicationElement.addEventListener("click", clickEvent => {
     }
 })
 
-applicationElement.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "select__user") {
+document.addEventListener("change", changeEvent => {
+    if (changeEvent.target.id === "select__user") {
+      setSelectUser(parseInt(changeEvent.target.value))
       const SelectedUser = document.querySelector("#feed")
       SelectedUser.innerHTML = AuthorPostList();
     }
