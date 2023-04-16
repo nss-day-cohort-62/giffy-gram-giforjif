@@ -7,16 +7,16 @@ export const NavBar = () => {
     return `
     <section class="navigation navigation__item">
     <div>
-        <img class="navigation__icon" id="navigation__logo" src="images/pb.png">
-    </div>
-    <div>
-        <div class="navigation__name" id="navigation__home" href="">Giffygram</div>
+        <img class="navigation__icon" id="navigation__logo" src="images/GiffyGram.png">
     </div>
     <div class="navigation__message">
         <img class="navigation__icon" id="directMessageIcon" src="images/fountain-pen.svg">
-        <div class="notification__count" id="notification">${MessageCount()}</div>
+        <img class="notification__count" id="notification" src="images/messages-icon.png">
     </div>
-    <a id="logoutLink" class="navigation__logout" href="">Logout</a>
+    <div class="message__number">${MessageCount()}</div>
+    <div class="goodbye">
+    <a id="logoutLink" class="navigation__logout" href="#logout">Logout</a>
+    </div>
 </section>`
 }
 

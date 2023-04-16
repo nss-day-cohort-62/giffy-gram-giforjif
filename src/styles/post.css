@@ -1,10 +1,13 @@
 #miniMode {
     padding: 1rem;
     margin: 0 25%;
-    border: 1px dashed slategrey;
+    border: 2px solid #DBDBDB;
     border-radius: 0.5rem;
     text-align: center;
     cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+    color: #909090;
 }
 
 .newPost {

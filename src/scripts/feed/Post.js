@@ -10,7 +10,7 @@ const applicationElement = document.querySelector(".giffygram");
 
 export const Post = () => {
   let html = `
-    <button id="miniMode">Have a GIF to post?</button>
+    <button id="miniMode">Have a GIF to post? </button>
     <div id="postForm__container"></div>
   `;
 

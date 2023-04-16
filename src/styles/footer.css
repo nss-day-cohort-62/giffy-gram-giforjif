@@ -1,7 +1,7 @@
 .footer {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: start;
+    justify-content: space-between;
     border-bottom: 1px solid lightblue;
     padding: 0.5em 0 0.5em 1em;
     margin-bottom: 2em;
@@ -14,5 +14,9 @@
 }
 
 .footer__item {
-    margin: 0 1rem;
+    margin: 0 5rem;
+}
+
+.showOnlyFavorites {
+    margin-right: 4px;
 }
